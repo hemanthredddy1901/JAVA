@@ -1,41 +1,72 @@
 
-import java.util.*;
-class atm
+import java.util.Scanner;
+class casep
 {
     public static void main(String[] args)
     {
-        try {
-            Scanner sc= new Scanner(System.in);
-            int arr[]={100,200,500,2000};
-            System.out.print("Enter the 1st Denomination : ");
-            int a= sc.nextInt();
-            System.out.print("Enter the 1st Denomination number of notes: ");
-            int a1= sc.nextInt();
-            System.out.print("Enter the 2nd Denomination: ");
-            int b= sc.nextInt();
-            System.out.print("Enter the 2nd Denomination number of notes: ");
-            int b1= sc.nextInt();
-            System.out.print("Enter the 3rd Denomination : ");
-            int c= sc.nextInt();
-            System.out.print("Enter the 3rd Denomination number of notes: ");
-            int c1= sc.nextInt();
-            System.out.print("Enter the 4th Denomination: ");
-            int d= sc.nextInt();
-            System.out.print("Enter the 4th Denomination number of notes: ");
-            int d1= sc.nextInt();
-            if(a==100||a==200||a==500||a==2000&&b==100||b==200||b==500||b==2000&&c==100||c==200||c==500||c==2000&&d==100||d==200||d==500||d==2000)
+        try
+        {
+            int a,rev=0,rem,choice;
+            String a1,b="";
+            char c;
+            int d=0,i;
+            Scanner sc=new Scanner(System.in);
+            System.out.println("Case:");
+            choice=sc.nextInt();
+            switch(choice)
             {
-                int e=a*a1+b*b1+c*c1+d*d1;
-                System.out.println("Total Available Balance in ATM = " +e);
-            }
-            else
-            {
-                System.out.println("Enter the correct Denomination");
+                case 1:
+                {
+                    System.out.println("Enter the string:");
+                    a1=sc.next();
+                    d=a1.length();
+                    for(i=d-1;i>=0;i--)
+                    {
+                        b=b+a1.charAt(i);
+                    }
+                    if(a1.equals(b))
+                    {
+                        System.out.println("PALINDROME");
+                    }
+                    else
+                    {
+                        System.out.println("NOT A PALINDROME");
+                    }
+                    break;
+                }
+                case 2:
+                {
+                    System.out.println("Enter a number:");
+                    a=sc.nextInt();
+                    int d1=a;
+                    while(a!=0)
+                    {
+                        rem=a%10;
+                        rev=rev*10+rem;
+                        a=a/10;
+                    }
+                    if(d1==rev)
+                    {
+
+                        System.out.println("PALINDROME");
+                    }
+                    else
+                    {
+
+                        System.out.println("NOT A PALINDROME");
+                    }
+                    break;
+                }
+                default:
+                {
+
+                    System.out.println("Executed");
+                }
             }
         }
         catch(Exception e)
         {
-            System.out.println("Enter the correct Denomination");
+            System.out.print("Enter only numbers");
         }
     }
 }
